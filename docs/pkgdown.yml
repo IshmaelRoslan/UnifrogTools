@@ -1,0 +1,11 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  Azure: Azure.html
+  Palettes: Palettes.html
+last_built: 2023-01-17T08:32Z
+urls:
+  reference: https://ishmaelroslan.github.io/UnifrogTools/reference
+  article: https://ishmaelroslan.github.io/UnifrogTools/articles
+

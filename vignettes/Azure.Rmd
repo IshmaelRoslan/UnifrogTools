@@ -1,0 +1,32 @@
+---
+title: "Azure"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Azure}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Getting Started
+
+```{r setup}
+library(unifrog)
+```
+
+1. Ensure you are connected to any required VPNs
+
+2. Run `setupAzureCreds()`. You'll be prompted to enter the server, database, username and password. They will be securely stored in your operating system's credential manager.
+
+
+3. To update credentials use `updateAzureCreds()`. This will prompt you for the fields that change.
+
+### Getting results from Azure database.
+
+The `getAzureResults()` function is able to query the database, so long as you are connected to the VPN. The raw `.sql`query must first be formatted using helper functions from `glue` and `readr`

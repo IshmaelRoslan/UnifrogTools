@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+inst/doc
+=======
 .Rproj.user/2F704AEF/build_options
 .Rproj.user/2F704AEF/cpp-definition-cache
 .Rproj.user/2F704AEF/persistent-state
@@ -52,3 +59,4 @@
 .Rproj.user/shared/notebooks/FBEBB775-Azure/1/s/chunks.json
 .RData
 .Rhistory
+>>>>>>> 4b305a1 (initial commit)

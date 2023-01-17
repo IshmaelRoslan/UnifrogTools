@@ -1,0 +1,30 @@
+Type: Package
+Package: unifrog
+Title: Unifrog Data Team Helpers
+Version: 0.2.2
+Author: Ishmael Roslan
+Maintainer: Ishmael Roslan <ishmael@unifrog.org>
+Description: Contains helper functions for Unifrog employees for ggplot
+    themes and accessing the Azure Database.
+License: MIT + file LICENSE
+Depends: 
+    R (>= 4.1.0)
+Imports:
+    datawizard,
+    DBI,
+    ggplot2,
+    ggtext,
+    glue,
+    insight,
+    keyring,
+    odbc,
+    readr,
+    unikn
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://ishmaelroslan.github.io/UnifrogTools/
