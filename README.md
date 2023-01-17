@@ -8,7 +8,7 @@
 
 The goal is to provide a set of function to help the production of
 documents for reproducible research in the Unifrog House Style. It
-contains to main part:
+contains three main parts:
 
 1.  Functions for interaction with the Azure database, including a
     secure way to store credentials using the `keyring` package.
