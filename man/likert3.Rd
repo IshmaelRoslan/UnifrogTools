@@ -13,4 +13,8 @@ likert3
 \description{
 Unifrog likert3 palette
 }
+\examples{
+library(unikn)
+seecol(likert3, main = "likert3")
+}
 \keyword{datasets}

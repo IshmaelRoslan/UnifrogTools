@@ -13,4 +13,7 @@ unifrog_main
 \description{
 Unifrog Main palette
 }
+\examples{
+unikn::seecol(unifrog_main, main = "unifrog_main")
+}
 \keyword{datasets}

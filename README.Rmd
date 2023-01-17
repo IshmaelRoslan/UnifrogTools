@@ -23,9 +23,9 @@ The goal is to provide a set of function to help the production of documents for
 
 1.  Functions for interaction with the Azure database, including a secure way to store credentials using the `keyring` package.
 
-2. A corporate `ggplot2` theme for Unifrog - `unifrog_theme()`
+2.  A corporate `ggplot2` theme for Unifrog - `unifrog_theme()`
 
-3. Corporate colour palettes including discrete, sequential and diverging versions.
+3.  Corporate colour palettes including discrete, sequential and diverging versions.
 
 ## Before Installation
 
@@ -58,4 +58,4 @@ devtools::install_github("IshmaelRoslan/UnifrogTools")
 
 ## Vignettes
 
-See `vignette("Azure")` and  `vignette("Palettes")`.
+See `vignette("Azure")` and `vignette("Palettes")` for examples or view the online documentation [here](https://ishmaelroslan.github.io/UnifrogTools/).

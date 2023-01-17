@@ -13,4 +13,8 @@ unifrog_palettes
 \description{
 List of all Unifrog palettes
 }
+\examples{
+library(unikn)
+unikn::seecol(unifrog_palettes, main = "All Unifrog Palettes", pal_names = names(unifrog_palettes))
+}
 \keyword{datasets}

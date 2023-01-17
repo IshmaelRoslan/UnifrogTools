@@ -53,4 +53,6 @@ devtools::install_github("IshmaelRoslan/UnifrogTools")
 
 ## Vignettes
 
-See `vignette("Azure")` and `vignette("Palettes")`.
+See `vignette("Azure")` and `vignette("Palettes")` for examples or view
+the online documentation
+[here](https://ishmaelroslan.github.io/UnifrogTools/).

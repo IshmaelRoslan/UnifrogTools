@@ -233,6 +233,8 @@ unifrog_colors <- function(...) {
 #' Unifrog Main palette
 #' @import unikn
 #' @export
+#' @examples
+#' unikn::seecol(unifrog_main, main = "unifrog_main")
 unifrog_main <-
   unikn::newpal(
     col = unifrog_colors("green", "lightblue", "orange", "darkgrey", "red", "purple"),
@@ -242,26 +244,41 @@ unifrog_main <-
 #' Unifrog greens palette
 #' @import unikn
 #' @export
+#' @examples
+#' library(unikn)
+#' seecol(unifrog_greens, main = "unifrog_greens")
 unifrog_greens <-
-  rev(unikn::shades_of(n = 5, col_1 = unifrog_colors("green"), col_n = "#D4F4E9"))
+  unikn::shades_of(n = 5, col_1 = "#D4F4E9", col_n = unifrog_colors("green"))
 #' Unifrog blues palette
 #' @import unikn
 #' @export
+#' @examples
+#' library(unikn)
+#' seecol(unifrog_blues, main = "unifrog_blues")
 unifrog_blues <-
-  rev(unikn::shades_of(n = 5, col_1 = unifrog_colors("blue"), col_n = "#CDDDF3"))
+  unikn::shades_of(n = 5, col_n = unifrog_colors("blue"), col_1 = "#CDDDF3")
 #' Unifrog oranges palette
 #' @import unikn
 #' @export
+#' @examples
+#' library(unikn)
+#' seecol(unifrog_oranges, main = "unifrog_oranges")
 unifrog_oranges <-
-  rev(unikn::shades_of(n = 5, col_1 = unifrog_colors("orange"), col_n = "#ffe2c9"))
+  unikn::shades_of(n = 5, col_n = unifrog_colors("orange"), col_1 = "#ffe2c9")
 #' Unifrog red palette
 #' @import unikn
 #' @export
+#' @examples
+#' library(unikn)
+#' seecol(unifrog_reds, main = "unifrog_reds")
 unifrog_reds <-
-  rev(unikn::shades_of(n = 5, col_1 = unifrog_colors("red"), col_n = "#ecc9d4"))
+  unikn::shades_of(n = 5, col_n = unifrog_colors("red"), col_1 = "#ecc9d4")
 #' Unifrog likert3 palette
 #' @import unikn
 #' @export
+#' @examples
+#' library(unikn)
+#' seecol(likert3, main = "likert3")
 likert3 <-
   unikn::newpal(
     col = unifrog_colors('red', 'grey', 'blue'),
@@ -271,6 +288,8 @@ likert3 <-
 #' Unifrog likert5 palette
 #' @import unikn
 #' @export
+#' @examples
+#' unikn::seecol(likert5, main = "likert5")
 likert5 <-
   unikn::newpal(
     col = unifrog_colors('red', 'orange', 'grey', 'yellow', 'green'),
@@ -280,6 +299,8 @@ likert5 <-
 #' Unifrog likert7 palette
 #' @import unikn
 #' @export
+#' @examples
+#' unikn::seecol(likert7, main = "likert7")
 likert7 <-
   unikn::newpal(
     col = unifrog_colors('red', 'orange', 'yellow', 'grey', 'green', 'blue', 'purple'),
@@ -289,6 +310,9 @@ likert7 <-
 #' List of all Unifrog palettes
 #' @import unikn
 #' @export
+#' @examples
+#' library(unikn)
+#' unikn::seecol(unifrog_palettes, main = "All Unifrog Palettes", pal_names = names(unifrog_palettes))
 unifrog_palettes <- list(
   "unifrog_main" = unifrog_main,
   "unifrog_blues" = unifrog_blues,

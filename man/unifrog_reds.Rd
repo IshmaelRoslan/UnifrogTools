@@ -13,4 +13,8 @@ unifrog_reds
 \description{
 Unifrog red palette
 }
+\examples{
+library(unikn)
+seecol(unifrog_reds, main = "unifrog_reds")
+}
 \keyword{datasets}

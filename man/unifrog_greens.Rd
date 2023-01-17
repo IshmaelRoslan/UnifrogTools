@@ -13,4 +13,8 @@ unifrog_greens
 \description{
 Unifrog greens palette
 }
+\examples{
+library(unikn)
+seecol(unifrog_greens, main = "unifrog_greens")
+}
 \keyword{datasets}

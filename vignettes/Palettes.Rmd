@@ -15,5 +15,122 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+library(ggplot2)
+library(forcats)
 library(unifrog)
+```
+
+### Unifrog Colors
+
+This extracts the unifrog palette colours as hex codes. Examples below.
+
+```{r unifrog_colors}
+unifrog_colors()
+```
+
+```{r unifrog_colors_specified}
+unifrog_colors("green", "lightblue", "darkgrey")
+```
+
+#### unikn
+
+You can view the palettes in a pretty way using the `unikn` package
+
+```{r}
+library(unikn)
+seecol(unifrog_colors(), main = "The entire Unifrog colour scheme")
+```
+
+```{r}
+seecol(unifrog_main, main = "The \"main\" palette is default for discrete data")
+```
+
+```{r}
+seecol(likert3, main = "The \"likert3\" palette is default for continuous data")
+```
+
+```{r}
+seecol(unifrog_palettes,
+       main = "The names of all of the Unifrog palettes",
+       pal_names = names(unifrog_palettes))
+```
+
+They have been grouped in three categories:
+
+Discrete - 'unifrog_main'
+
+Sequential - 'unifrog_blues', 'unifrog_greens', 'unifrog_oranges', 'unifrog_reds'
+
+Diverging - 'likert3', 'likert5', 'likert7'
+
+### scale_fill_unifrog
+
+If no fill is specified, for a categorical variable, then the default is `scale_fill_unifrog_d("unifrog_main")`.
+
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  geom_boxplot() +
+  theme_classic()
+```
+
+You can see that the addition of line 4 has no effect on the output
+
+```{r}
+#| code-line-numbers: true
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_unifrog_d()
+```
+
+Addition of `reverse = TRUE` on line 4starts from the opposite end of the palette.
+
+```{r}
+#| code-line-numbers: true
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_unifrog_d(reverse = TRUE)
+```
+
+In order to guarantee the colour reversal for `unifrog_main` use `fct_rev` in the fill argument.
+
+```{r}
+#| code-line-numbers: true
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = fct_rev(Species))) +
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_unifrog_d()
+```
+
+If you want to use a different palette, you can specify it with the palette argument.
+
+::: callout-note
+Note a sequential palette does not often make sense for bar charts.
+:::
+
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  geom_violin() +
+  scale_fill_unifrog_d(palette = "unifrog_greens") +
+  theme_classic()
+```
+
+### scale_color_unifrog
+
+For continuous variables, the default is `scale_fill_unifrog_c("likert3")`
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = hwy)) +
+  geom_point() +
+  theme_bw()
+```
+
+You can change this the same way as shown above but using the color aesthetic.
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = hwy)) +
+  geom_point() +
+  scale_color_unifrog_c('likert5') +
+  theme_bw()
 ```
