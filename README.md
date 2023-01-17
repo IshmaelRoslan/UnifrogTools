@@ -39,7 +39,20 @@ Install the latest version of
 
 - Click Install
 
+### Package compiler
+
+Install
+[Rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/files/rtools42-5355-5357.exe)
+if you are running windows or
+[Xcode](https://developer.apple.com/xcode/) if you have a Mac
+
 ### Installing Required Packages
+
+You can run the code this code to install most of the packages.
+
+``` r
+install.packages(c("devtools", "datawizard","keyring", "DBI", "odbc", "ggtext", "glue", "ragg","tidyverse","insight","unikn"))
+```
 
 ## Installation
 
@@ -51,8 +64,18 @@ You can install the development version of unifrog from
 devtools::install_github("IshmaelRoslan/UnifrogTools")
 ```
 
+## In RStudio
+
+Tools \> Global Options \> General \> Graphics
+
+Set backend to AGG. (Better rendering.)
+
+Tools \> Global Options Set your default working directory to the
+projects folder on your hard drive.
+
 ## Vignettes
 
-See `vignette("Azure")` and `vignette("Palettes")` for examples or view
-the online documentation
+See `vignette("Azure")` to get setup your database connections,
+`vignette("Palettes")` for examples of ggplot themes and palettes or
+view the online documentation
 [here](https://ishmaelroslan.github.io/UnifrogTools/).
