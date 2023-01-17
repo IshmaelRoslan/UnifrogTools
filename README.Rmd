@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal is to provide a set of function to help the production of documents for reproducible research in the Unifrog House Style. It contains to main part:
+The goal is to provide a set of function to help the production of documents for reproducible research in the Unifrog House Style. It contains three main parts:
 
 1.  Functions for interaction with the Azure database, including a secure way to store credentials using the `keyring` package.
 
@@ -54,8 +54,7 @@ Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/files/rt
 
 You can run the code this code to install most of the packages.
 
-```{r}
-#| eval: false
+```{r eval = FALSE}
 install.packages(c("devtools", "datawizard","keyring", "DBI", "odbc", "ggtext", "glue", "ragg","tidyverse","insight","unikn"))
 ```
 

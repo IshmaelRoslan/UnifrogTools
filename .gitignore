@@ -60,3 +60,6 @@ inst/doc
 .RData
 .Rhistory
 >>>>>>> 4b305a1 (initial commit)
+docs
+/doc/
+/Meta/
