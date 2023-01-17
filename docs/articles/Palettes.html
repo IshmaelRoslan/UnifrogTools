@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">unifrog</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,9 +72,123 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ishmaelroslan.github.io/UnifrogTools/">unifrog</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://forcats.tidyverse.org/" class="external-link">forcats</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ishmaelroslan.github.io/UnifrogTools/">unifrog</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Default ggplot theme set to unifrog_theme(). Unifrog colour palettes applied.</span></span></code></pre></div>
-  </main>
+<div class="section level3">
+<h3 id="unifrog-colors">Unifrog Colors<a class="anchor" aria-label="anchor" href="#unifrog-colors"></a>
+</h3>
+<p>This extracts the unifrog palette colours as hex codes. Examples
+below.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/unifrog_colors.html">unifrog_colors</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        red     orange     yellow       grey   darkgrey  lightblue       blue </span></span>
+<span><span class="co">#&gt;  "#a50036"  "#ff7901"  "#c89801"  "#cccccc"  "#8c8c8c"  "#17a0ff"  "#1561c8" </span></span>
+<span><span class="co">#&gt;      green     purple      brown       pink background       main </span></span>
+<span><span class="co">#&gt;  "#33cc99"  "#6815ad"  "#b54f0d"  "#ec44f2"  "#FFFFFF"  "#000000"</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/unifrog_colors.html">unifrog_colors</a></span><span class="op">(</span><span class="st">"green"</span>, <span class="st">"lightblue"</span>, <span class="st">"darkgrey"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     green lightblue  darkgrey </span></span>
+<span><span class="co">#&gt; "#33cc99" "#17a0ff" "#8c8c8c"</span></span></code></pre></div>
+<div class="section level4">
+<h4 id="unikn">unikn<a class="anchor" aria-label="anchor" href="#unikn"></a>
+</h4>
+<p>You can view the palettes in a pretty way using the
+<code>unikn</code> package</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">unikn</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #6C6C6C;">Welcome to </span><span style="color: #00AFD7;">unikn</span><span style="color: #6C6C6C;"> (v0.8.0)!</span></span></span>
+<span><span class="co">#&gt; <span style="color: #AF005F;">seecol()</span><span style="color: #6C6C6C;"> shows colors or color palettes.</span></span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/unikn/man/seecol.html" class="external-link">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/unifrog_colors.html">unifrog_colors</a></span><span class="op">(</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"The entire Unifrog colour scheme"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/unikn/man/seecol.html" class="external-link">seecol</a></span><span class="op">(</span><span class="va">unifrog_main</span>, main <span class="op">=</span> <span class="st">"The \"main\" palette is default for discrete data"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/unikn/man/seecol.html" class="external-link">seecol</a></span><span class="op">(</span><span class="va">likert3</span>, main <span class="op">=</span> <span class="st">"The \"likert3\" palette is default for continuous data"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/unikn/man/seecol.html" class="external-link">seecol</a></span><span class="op">(</span><span class="va">unifrog_palettes</span>,</span>
+<span>       main <span class="op">=</span> <span class="st">"The names of all of the Unifrog palettes"</span>,</span>
+<span>       pal_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">unifrog_palettes</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p>They have been grouped in three categories:</p>
+<p>Discrete - ‘unifrog_main’</p>
+<p>Sequential - ‘unifrog_blues’, ‘unifrog_greens’, ‘unifrog_oranges’,
+‘unifrog_reds’</p>
+<p>Diverging - ‘likert3’, ‘likert5’, ‘likert7’</p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="scale_fill_unifrog">scale_fill_unifrog<a class="anchor" aria-label="anchor" href="#scale_fill_unifrog"></a>
+</h3>
+<p>If no fill is specified, for a categorical variable, then the default
+is <code>scale_fill_unifrog_d("unifrog_main")</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Sepal.Length</span>, fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p>You can see that the addition of line 4 has no effect on the
+output</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Sepal.Length</span>, fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_color_unifrog.html">scale_fill_unifrog_d</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p>Addition of <code>reverse = TRUE</code> on line 4starts from the
+opposite end of the palette.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Sepal.Length</span>, fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_color_unifrog.html">scale_fill_unifrog_d</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<p>In order to guarantee the colour reversal for
+<code>unifrog_main</code> use <code>fct_rev</code> in the fill
+argument.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Sepal.Length</span>, fill <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_rev.html" class="external-link">fct_rev</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html" class="external-link">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_color_unifrog.html">scale_fill_unifrog_d</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<p>If you want to use a different palette, you can specify it with the
+palette argument.</p>
+<div class="callout-note">
+<p>Note a sequential palette does not often make sense for bar
+charts.</p>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Sepal.Length</span>, fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html" class="external-link">geom_violin</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_color_unifrog.html">scale_fill_unifrog_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"unifrog_greens"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
+</div>
+<div class="section level3">
+<h3 id="scale_color_unifrog">scale_color_unifrog<a class="anchor" aria-label="anchor" href="#scale_color_unifrog"></a>
+</h3>
+<p>For continuous variables, the default is
+<code>scale_fill_unifrog_c("likert3")</code></p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+<p>You can change this the same way as shown above but using the color
+aesthetic.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span>, color <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_color_unifrog.html">scale_color_unifrog_c</a></span><span class="op">(</span><span class="st">'likert5'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Palettes_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
