@@ -51,7 +51,7 @@ if you are running windows or
 You can run the code this code to install most of the packages.
 
 ``` r
-install.packages(c("devtools", "datawizard","keyring", "DBI", "odbc", "ggtext", "glue", "ragg","tidyverse","insight","unikn"))
+install.packages(c("devtools", "datawizard", "keyring", "DBI", "odbc", "ggtext", "glue", "ragg", "tidyverse", "insight", "unikn"))
 ```
 
 ## Installation

@@ -28,7 +28,7 @@
 #'
 #' ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Length)) +
 #'   geom_point() +
-#'   scale_color_unifrog_c(palette = "likert7")+
+#'   scale_color_unifrog_c(palette = "likert7") +
 #'   theme_bw()
 #' @export
 scale_color_unifrog <-
@@ -39,17 +39,20 @@ scale_color_unifrog <-
            ...) {
     if (discrete & palette == "unifrog_main") {
       pal <- usecol(unifrog_main)
-      if (reverse)
+      if (reverse) {
         pal <- rev(pal)
+      }
       scale_fill_manual(values = pal)
-    } else{
+    } else {
       pal <- palette_unifrog(palette = palette, reverse = reverse)
 
       if (discrete) {
-        discrete_scale(aesthetics = aesthetics,
-                       paste0("unifrog_", palette),
-                       palette = pal,
-                       ...)
+        discrete_scale(
+          aesthetics = aesthetics,
+          paste0("unifrog_", palette),
+          palette = pal,
+          ...
+        )
       } else {
         scale_color_gradientn(colours = pal(256), aesthetics = aesthetics, ...)
       }
@@ -128,17 +131,20 @@ scale_fill_unifrog <-
            ...) {
     if (discrete & palette == "unifrog_main") {
       pal <- usecol(unifrog_main)
-      if (reverse)
+      if (reverse) {
         pal <- rev(pal)
+      }
       scale_fill_manual(values = pal)
-    }  else {
+    } else {
       pal <- palette_unifrog(palette = palette, reverse = reverse)
 
       if (discrete) {
-        discrete_scale(aesthetics = aesthetics,
-                       paste0("unifrog_", palette),
-                       palette = pal,
-                       ...)
+        discrete_scale(
+          aesthetics = aesthetics,
+          paste0("unifrog_", palette),
+          palette = pal,
+          ...
+        )
       } else {
         scale_fill_gradientn(colours = pal(256), aesthetics = aesthetics, ...)
       }
@@ -281,8 +287,8 @@ unifrog_reds <-
 #' seecol(likert3, main = "likert3")
 likert3 <-
   unikn::newpal(
-    col = unifrog_colors('red', 'grey', 'blue'),
-    names = c('red', 'grey', 'blue'),
+    col = unifrog_colors("red", "grey", "blue"),
+    names = c("red", "grey", "blue"),
     as_df = F
   )
 #' Unifrog likert5 palette
@@ -292,8 +298,8 @@ likert3 <-
 #' unikn::seecol(likert5, main = "likert5")
 likert5 <-
   unikn::newpal(
-    col = unifrog_colors('red', 'orange', 'grey', 'yellow', 'green'),
-    names = c('red', 'orange', 'grey', 'yellow', 'green'),
+    col = unifrog_colors("red", "orange", "grey", "yellow", "green"),
+    names = c("red", "orange", "grey", "yellow", "green"),
     as_df = F
   )
 #' Unifrog likert7 palette
@@ -303,8 +309,8 @@ likert5 <-
 #' unikn::seecol(likert7, main = "likert7")
 likert7 <-
   unikn::newpal(
-    col = unifrog_colors('red', 'orange', 'yellow', 'grey', 'green', 'blue', 'purple'),
-    names = c('red', 'orange', 'yellow', 'grey', 'green', 'blue', 'purple'),
+    col = unifrog_colors("red", "orange", "yellow", "grey", "green", "blue", "purple"),
+    names = c("red", "orange", "yellow", "grey", "green", "blue", "purple"),
     as_df = F
   )
 #' List of all Unifrog palettes
@@ -367,8 +373,9 @@ palette_unifrog <-
     }
     pal <- palette_list[[palette]]
 
-    if (reverse)
+    if (reverse) {
       pal <- rev(pal)
+    }
 
     grDevices::colorRampPalette(pal, ...)
   }

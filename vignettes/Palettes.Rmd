@@ -51,8 +51,9 @@ seecol(likert3, main = "The \"likert3\" palette is default for continuous data")
 
 ```{r}
 seecol(unifrog_palettes,
-       main = "The names of all of the Unifrog palettes",
-       pal_names = names(unifrog_palettes))
+  main = "The names of all of the Unifrog palettes",
+  pal_names = names(unifrog_palettes)
+)
 ```
 
 They have been grouped in three categories:
@@ -83,7 +84,7 @@ ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   scale_fill_unifrog_d()
 ```
 
-Addition of `reverse = TRUE` on line 4starts from the opposite end of the palette.
+Addition of `reverse = TRUE` on line 4 starts from the opposite end of the palette.
 
 ```{r}
 #| code-line-numbers: true
@@ -131,6 +132,6 @@ You can change this the same way as shown above but using the color aesthetic.
 ```{r}
 ggplot(mpg, aes(x = displ, y = hwy, color = hwy)) +
   geom_point() +
-  scale_color_unifrog_c('likert5') +
+  scale_color_unifrog_c("likert5") +
   theme_bw()
 ```

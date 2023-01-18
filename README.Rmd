@@ -55,7 +55,7 @@ Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/files/rt
 You can run the code this code to install most of the packages.
 
 ```{r eval = FALSE}
-install.packages(c("devtools", "datawizard","keyring", "DBI", "odbc", "ggtext", "glue", "ragg","tidyverse","insight","unikn"))
+install.packages(c("devtools", "datawizard", "keyring", "DBI", "odbc", "ggtext", "glue", "ragg", "tidyverse", "insight", "unikn"))
 ```
 
 ##  Installation

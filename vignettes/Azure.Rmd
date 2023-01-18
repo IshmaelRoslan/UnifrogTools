@@ -33,12 +33,11 @@ The `getAzureResults()` function is able to query the database, so long as you a
 
 ```{r read}
 library(readr)
-query_text <- read_file("query_name.sql")
+query_text <- read_file("queries/query_name.sql")
 query_text
 ```
 
 ```{r glue}
-require(glue)
 library(glue)
 query <- glue_sql(query_text)
 query
@@ -46,15 +45,19 @@ query
 
 In the example below, query_results.csv already exists and so no query will be executed. Instead, the .csv file will be read in using `readr::read_csv()`
 ```{r example}
-results <- getAzureResults(SQLscript = query,
-                           output = "query_results.csv")
+results <- getAzureResults(
+  SQLscript = query,
+  output = "csv/query_results.csv"
+)
 results
 ```
 
 The default behaviour can be overridden if, for example, the data or query has changed by using the `overwrite = TRUE` argument.
 ```{r example2}
-results <- getAzureResults(SQLscript = query,
-                           output = "query_results.csv",
-                           overwrite = TRUE)
+results <- getAzureResults(
+  SQLscript = query,
+  output = "csv/query_results.csv",
+  overwrite = TRUE
+)
 results
 ```

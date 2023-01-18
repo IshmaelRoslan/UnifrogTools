@@ -118,6 +118,6 @@ ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
 
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Length)) +
   geom_point() +
-  scale_color_unifrog_c(palette = "likert7")+
+  scale_color_unifrog_c(palette = "likert7") +
   theme_bw()
 }

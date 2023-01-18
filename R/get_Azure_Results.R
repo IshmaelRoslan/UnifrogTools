@@ -36,10 +36,10 @@ updateAzureCreds <- function() {
 #' @import keyring
 #
 getAzureResults <- function(SQLscript,
-                       output,
-                       overwrite = FALSE) {
+                            output,
+                            overwrite = FALSE) {
   if (!file.exists(output) ||
-      overwrite == TRUE) {
+    overwrite == TRUE) {
     con <- dbConnect(
       odbc(),
       Driver = keyring::key_get("driver"),
@@ -55,5 +55,5 @@ getAzureResults <- function(SQLscript,
   } else {
     raw <- read_csv(output, show_col_types = FALSE)
   }
-  return (raw)
+  return(raw)
 }
