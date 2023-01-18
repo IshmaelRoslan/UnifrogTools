@@ -4,7 +4,7 @@
 \alias{unifrog_theme}
 \title{A ggplot theme for Unifrog employees based on theme_classic()}
 \usage{
-unifrog_theme(base_size = 11)
+unifrog_theme(base_size = 10)
 }
 \arguments{
 \item{base_size}{The default font_size in pts}
