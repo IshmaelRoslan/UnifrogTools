@@ -13,6 +13,13 @@ unifrog_theme <- function(base_size = 10) {
         linewidth = 0.5,
         linetype = "solid"
       ),
+      text = element_text(
+        face = "plain",
+        color = unifrog_colors("main"),
+        family = "Open Sans",
+        size = base_size,
+        hjust = 0
+      ),
       title = element_text(
         face = "bold",
         color = unifrog_colors("main"),
@@ -23,7 +30,8 @@ unifrog_theme <- function(base_size = 10) {
       rect = element_rect(fill = unifrog_colors("background")),
       plot.title.position = "plot",
       plot.title = element_text(),
-      plot.subtitle = element_text(),
+      plot.subtitle = element_text(size = base_size),
+      plot.caption = element_text(size = base_size, hjust = 1),
       axis.line = element_line(
         colour = unifrog_colors("grey"),
         linewidth = 0.5,

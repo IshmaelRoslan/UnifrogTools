@@ -30,6 +30,7 @@ updateAzureCreds <- function() {
 #' @return a tibble containing the results of the SQL query.
 #' @description If overwrite = FALSE and the output file already exists, the database will not be queried but the csv read instead.
 #' @export
+#' @import arrow
 #' @import readr
 #' @import DBI
 #' @import odbc
@@ -51,9 +52,9 @@ getAzureResults <- function(SQLscript,
     )
     raw <- dbGetQuery(con, SQLscript)
     dbDisconnect(con)
-    write_csv(raw, output)
+    arrow::write_parquet(raw, output)
   } else {
-    raw <- read_csv(output, show_col_types = FALSE)
+    raw <- arrow::read_parquet(output)
   }
   return(raw)
 }

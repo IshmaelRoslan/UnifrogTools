@@ -43,11 +43,11 @@ query <- glue_sql(query_text)
 query
 ```
 
-In the example below, query_results.csv already exists and so no query will be executed. Instead, the .csv file will be read in using `readr::read_csv()`
+In the example below, query_results.parquet already exists and so no query will be executed. Instead, the .parquet file will be read in using `arrow::read_parquet()`
 ```{r example}
 results <- getAzureResults(
   SQLscript = query,
-  output = "csv/query_results.csv"
+  output = "data/query_results.parquet"
 )
 results
 ```
@@ -56,7 +56,7 @@ The default behaviour can be overridden if, for example, the data or query has c
 ```{r example2}
 results <- getAzureResults(
   SQLscript = query,
-  output = "csv/query_results.csv",
+  output = "data/query_results.parquet",
   overwrite = TRUE
 )
 results
