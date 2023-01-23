@@ -24,22 +24,42 @@ updateAzureCreds <- function() {
 
 #' Connect to the Azure Database and Run a Query
 #'
-#' @param SQLscript a glue object containing a SQL script (from glue_sql())
-#' @param output a string containing the path for a csv output
-#' @param overwrite a logical indicating whether or not the output csv should be overwritten. Defaults to FALSE.
+#' @param SQLscript an object containing a SQL script
+#' @param output a string containing the path for a .parquet output, defaults to '/data/sql_file_name.parquet'
+#' @param overwrite a logical indicating whether or not the output .parquet should be overwritten. Defaults to FALSE.
+#' @param glued a logical indicating whether SQLscript has been glued.
 #' @return a tibble containing the results of the SQL query.
-#' @description If overwrite = FALSE and the output file already exists, the database will not be queried but the csv read instead.
+#' @description If overwrite = FALSE and the output file already exists, the database will not be queried but the .parquet read instead. If glued = FALSE, SQLscript should be a raw .sql file, the function will automatically process the .sql to an appropriate format. If you want to modify the script before querying, for example when changing a parameter, then set glued = TRUE. In this case, you should ensure that the SQL script has been transformed by glue_sql() before passing to the function.
 #' @export
 #' @import arrow
+#' @import glue
 #' @import readr
+#' @import stringr
 #' @import DBI
 #' @import odbc
 #' @import keyring
 #
 getAzureResults <- function(SQLscript,
-                            output,
-                            overwrite = FALSE) {
-  if (!file.exists(output) ||
+                            output = NULL,
+                            overwrite = FALSE,
+                            glued = FALSE) {
+
+  if (glued == TRUE) {
+    query <- SQLscript
+  } else {
+    query <- glue::glue_sql(readr::read_file(SQLscript))
+  }
+
+  if (is.null(output)) {
+    output_path <-
+      SQLscript |>
+      stringr::str_replace("queries/", "data/") |>
+      stringr::str_replace(".sql", ".parquet")
+  } else {
+    output_path <- output
+  }
+
+  if (!file.exists(output_path) ||
     overwrite == TRUE) {
     con <- dbConnect(
       odbc(),
@@ -50,11 +70,11 @@ getAzureResults <- function(SQLscript,
       PWD = keyring::key_get("pwd"),
       Port = keyring::key_get("port")
     )
-    raw <- dbGetQuery(con, SQLscript)
+    raw <- dbGetQuery(con, query)
     dbDisconnect(con)
-    arrow::write_parquet(raw, output)
+    arrow::write_parquet(raw, output_path)
   } else {
-    raw <- arrow::read_parquet(output)
+    raw <- arrow::read_parquet(output_path)
   }
   return(raw)
 }

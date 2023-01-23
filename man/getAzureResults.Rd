@@ -4,18 +4,20 @@
 \alias{getAzureResults}
 \title{Connect to the Azure Database and Run a Query}
 \usage{
-getAzureResults(SQLscript, output, overwrite = FALSE)
+getAzureResults(SQLscript, output = NULL, overwrite = FALSE, glued = FALSE)
 }
 \arguments{
-\item{SQLscript}{a glue object containing a SQL script (from glue_sql())}
+\item{SQLscript}{an object containing a SQL script}
 
-\item{output}{a string containing the path for a csv output}
+\item{output}{a string containing the path for a .parquet output, defaults to '/data/sql_file_name.parquet'}
 
-\item{overwrite}{a logical indicating whether or not the output csv should be overwritten. Defaults to FALSE.}
+\item{overwrite}{a logical indicating whether or not the output .parquet should be overwritten. Defaults to FALSE.}
+
+\item{glued}{a logical indicating whether SQLscript has been glued.}
 }
 \value{
 a tibble containing the results of the SQL query.
 }
 \description{
-If overwrite = FALSE and the output file already exists, the database will not be queried but the csv read instead.
+If overwrite = FALSE and the output file already exists, the database will not be queried but the .parquet read instead. If glued = FALSE, SQLscript should be a raw .sql file, the function will automatically process the .sql to an appropriate format. If you want to modify the script before querying, for example when changing a parameter, then set glued = TRUE. In this case, you should ensure that the SQL script has been transformed by glue_sql() before passing to the function.
 }
