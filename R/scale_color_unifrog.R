@@ -42,7 +42,7 @@ scale_color_unifrog <-
       if (reverse) {
         pal <- rev(pal)
       }
-      scale_fill_manual(values = pal)
+      scale_color_manual(values = pal)
     } else {
       pal <- palette_unifrog(palette = palette, reverse = reverse)
 
