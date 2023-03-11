@@ -5,7 +5,7 @@
 \alias{unifrog_main}
 \title{Unifrog Main palette}
 \format{
-An object of class \code{character} of length 6.
+An object of class \code{character} of length 9.
 }
 \usage{
 unifrog_main

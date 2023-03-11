@@ -30,15 +30,15 @@ unifrog_theme <- function(base_size = 10) {
       rect = element_rect(fill = unifrog_colors("background")),
       plot.title.position = "plot",
       plot.title = element_text(),
-      plot.subtitle = element_text(size = base_size),
+      plot.subtitle = element_text(size = base_size, face = "plain", color = unifrog_colors('darkgrey')),
       plot.caption = element_text(size = base_size, hjust = 1),
       axis.line = element_line(
-        colour = unifrog_colors("grey"),
+        colour = unifrog_colors("darkgrey"),
         linewidth = 0.5,
         linetype = "solid"
       ),
       axis.ticks = element_line(
-        colour = unifrog_colors("grey"),
+        colour = unifrog_colors("darkgrey"),
         linewidth = 1,
         linetype = "solid"
       ),
@@ -68,10 +68,11 @@ unifrog_theme <- function(base_size = 10) {
         size = base_size * 1.2,
         hjust = 1
       ),
-      legend.position = "bottom",
+      legend.position = "top",
       legend.direction = "horizontal",
-      strip.background = element_rect(fill = unifrog_colors("background"), colour = unifrog_colors("grey")),
+      strip.background = element_rect(fill = unifrog_colors("background"), colour = unifrog_colors("background")),
       strip.text = element_text(face = "bold"),
-      panel.background = element_rect(fill = unifrog_colors("background"))
+      panel.background = element_rect(fill = unifrog_colors("background")),
+      legend.text = element_text(size = base_size)
     )
 }

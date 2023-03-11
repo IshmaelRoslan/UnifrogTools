@@ -29,7 +29,7 @@ unifrog_colors()
 ```
 
 ```{r unifrog_colors_specified}
-unifrog_colors("green", "lightblue", "darkgrey")
+unifrog_colors("green", "teal", "darkgrey")
 ```
 
 #### unikn
