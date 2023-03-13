@@ -44,7 +44,7 @@ results
 ```
 
 The default behaviour can be overridden if, for example, the data or query has changed by using the `overwrite = TRUE` argument.
-```{r example2}
+```{r example2, eval=FALSE}
 results <- getAzureResults(
   SQLscript = query,
   output = "data/query_name.parquet",

@@ -204,8 +204,8 @@ unifrog_colors_list <- c(
   `blue0` = "#dae9f6",`blue1` = "#bdd7ee",`blue2` = "#9dc3e6",`blue` = "#5b9bd5",`darkblue` = "#167ad5",
   `indigo0` = "#e8e9fe",`indigo1` = "#dbddfd",`indigo2` = "#bcbffc",`indigo` = "#9ba0fb",`darkindigo` = "#4f58fc",
   `purple0` = "#ecdff5",`purple1` = "#ddc5ed",`purple2` = "#cba7e3",`purple` = "#bd90dc",`darkpurple` = "#9036d6",
-  `background` = "#F9f9f9",
-  `midgrey` = "#eeeeee",
+  `background` = "#Ffffff",
+  `neutralgrey` = "#F9f9f9",
   'lightgrey' = "#CCCCCC",
   `darkgrey` = "#999999",
   `main` = "#000000"
@@ -247,16 +247,16 @@ unifrog_main <-
     names = c("blue", "orange","lightgrey", "teal", "purple","yellow","pink","darkgrey", "indigo"),
     as_df = F
   )
-#' Unifrog greens palette
+#' Unifrog purples palette
 #' @import unikn
 #' @export
 #' @examples
 #' library(unikn)
-#' seecol(unifrog_greens, main = "unifrog_greens")
-unifrog_greens <-
+#' seecol(unifrog_purples, main = "unifrog_purples")
+unifrog_purples <-
   unikn::newpal(
-    col = unifrog_colors("green0", "green1", "green2" , "green" , "darkgreen" ),
-    names = c("green0", "green1", "green2" , "green" , "darkgreen" ),
+    col = unifrog_colors("purple0", "purple1", "purple2" , "purple" , "darkpurple" ),
+    names = c("purple0", "purple1", "purple2" , "purple" , "darkpurple" ),
     as_df = F
   )
 #' Unifrog blues palette
@@ -338,7 +338,7 @@ likert7 <-
 unifrog_palettes <- list(
   "unifrog_main" = unifrog_main,
   "unifrog_blues" = unifrog_blues,
-  "unifrog_greens" = unifrog_greens,
+  "unifrog_purples" = unifrog_purples,
   "unifrog_oranges" = unifrog_oranges,
   "unifrog_teals" = unifrog_teals,
   "likert3" = likert3,

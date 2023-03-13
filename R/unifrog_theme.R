@@ -9,7 +9,7 @@ unifrog_theme <- function(base_size = 10) {
   theme_classic() +
     theme(
       line = element_line(
-        colour = unifrog_colors("grey"),
+        colour = unifrog_colors("darkgrey"),
         linewidth = 0.5,
         linetype = "solid"
       ),
@@ -70,7 +70,7 @@ unifrog_theme <- function(base_size = 10) {
       ),
       legend.position = "top",
       legend.direction = "horizontal",
-      strip.background = element_rect(fill = unifrog_colors("background"), colour = unifrog_colors("background")),
+      strip.background = element_rect(fill = unifrog_colors("neutralgrey"), colour = unifrog_colors("darkgrey")),
       strip.text = element_text(face = "bold"),
       panel.background = element_rect(fill = unifrog_colors("background")),
       legend.text = element_text(size = base_size)

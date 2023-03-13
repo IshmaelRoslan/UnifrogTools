@@ -113,7 +113,7 @@ Note a sequential palette does not often make sense for bar charts.
 ```{r}
 ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   geom_violin() +
-  scale_fill_unifrog_d(palette = "unifrog_greens") +
+  scale_fill_unifrog_d(palette = "unifrog_teals") +
   theme_classic()
 ```
 
@@ -124,7 +124,7 @@ For continuous variables, the default is `scale_fill_unifrog_c("likert3")`
 ```{r}
 ggplot(mpg, aes(x = displ, y = hwy, color = hwy)) +
   geom_point() +
-  theme_bw()
+  unifrog_theme()
 ```
 
 You can change this the same way as shown above but using the color aesthetic.
@@ -133,5 +133,5 @@ You can change this the same way as shown above but using the color aesthetic.
 ggplot(mpg, aes(x = displ, y = hwy, color = hwy)) +
   geom_point() +
   scale_color_unifrog_c("likert5") +
-  theme_bw()
+  unifrog_theme()
 ```
