@@ -83,14 +83,24 @@
 below.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/unifrog_colors.html">unifrog_colors</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;        red     orange     yellow       grey   darkgrey  lightblue       blue </span></span>
-<span><span class="co">#&gt;  "#a50036"  "#ff7901"  "#c89801"  "#cccccc"  "#8c8c8c"  "#17a0ff"  "#1561c8" </span></span>
-<span><span class="co">#&gt;      green     purple      brown       pink background       main </span></span>
-<span><span class="co">#&gt;  "#33cc99"  "#6815ad"  "#b54f0d"  "#ec44f2"  "#FFFFFF"  "#000000"</span></span></code></pre></div>
+<span><span class="co">#&gt;      pink0      pink1      pink2       pink   darkpink    orange0    orange1 </span></span>
+<span><span class="co">#&gt;  "#feddef"  "#fcabd8"  "#fb85c6"  "#f95cb3"  "#be5787"  "#ffe4cc"  "#ffc999" </span></span>
+<span><span class="co">#&gt;    orange2     orange darkorange    yellow0    yellow1    yellow2     yellow </span></span>
+<span><span class="co">#&gt;  "#ffaf67"  "#ff7901"  "#af5d13"  "#fff2cc"  "#ffe699"  "#ffd966"  "#ffc000" </span></span>
+<span><span class="co">#&gt; darkyellow     green0     green1     green2      green  darkgreen      teal0 </span></span>
+<span><span class="co">#&gt;  "#d88300"  "#cdf3e6"  "#adebd6"  "#85e0c2"  "#33cc99"  "#188f67"  "#c9f0ef" </span></span>
+<span><span class="co">#&gt;      teal1      teal2       teal   darkteal      blue0      blue1      blue2 </span></span>
+<span><span class="co">#&gt;  "#b7e9e9"  "#93ddde"  "#4bc7c8"  "#348b8b"  "#dae9f6"  "#bdd7ee"  "#9dc3e6" </span></span>
+<span><span class="co">#&gt;       blue   darkblue    indigo0    indigo1    indigo2     indigo darkindigo </span></span>
+<span><span class="co">#&gt;  "#5b9bd5"  "#167ad5"  "#e8e9fe"  "#dbddfd"  "#bcbffc"  "#9ba0fb"  "#4f58fc" </span></span>
+<span><span class="co">#&gt;    purple0    purple1    purple2     purple darkpurple background    midgrey </span></span>
+<span><span class="co">#&gt;  "#ecdff5"  "#ddc5ed"  "#cba7e3"  "#bd90dc"  "#9036d6"  "#F9f9f9"  "#eeeeee" </span></span>
+<span><span class="co">#&gt;  lightgrey   darkgrey       main </span></span>
+<span><span class="co">#&gt;  "#CCCCCC"  "#999999"  "#000000"</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/unifrog_colors.html">unifrog_colors</a></span><span class="op">(</span><span class="st">"green"</span>, <span class="st">"lightblue"</span>, <span class="st">"darkgrey"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;     green lightblue  darkgrey </span></span>
-<span><span class="co">#&gt; "#33cc99" "#17a0ff" "#8c8c8c"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/unifrog_colors.html">unifrog_colors</a></span><span class="op">(</span><span class="st">"green"</span>, <span class="st">"teal"</span>, <span class="st">"darkgrey"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     green      teal  darkgrey </span></span>
+<span><span class="co">#&gt; "#33cc99" "#4bc7c8" "#999999"</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="unikn">unikn<a class="anchor" aria-label="anchor" href="#unikn"></a>
 </h4>
@@ -99,7 +109,8 @@ below.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://CRAN.R-project.org/package=unikn" class="external-link">unikn</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #6C6C6C;">Welcome to </span><span style="color: #00AFD7;">unikn</span><span style="color: #6C6C6C;"> (v0.8.0)!</span></span></span>
-<span><span class="co">#&gt; <span style="color: #5F5FAF;">seecol()</span><span style="color: #6C6C6C;"> shows colors or color palettes.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">Try naming the colors of these words:</span></span></span>
+<span><span class="co">#&gt; <span style="color: #0087AF;">black</span>  <span style="color: #D75F87;">red</span>  <span style="color: #5F5FAF;">green</span>  <span style="color: #AF005F;">blue</span>  <span style="color: #FFAF87;">snow</span>  <span style="color: #00AFD7;">yellow</span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/unikn/man/seecol.html" class="external-link">seecol</a></span><span class="op">(</span><span class="fu"><a href="../reference/unifrog_colors.html">unifrog_colors</a></span><span class="op">(</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"The entire Unifrog colour scheme"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Palettes_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
