@@ -60,18 +60,23 @@ getAzureResults <- function(SQLscript,
   }
 
   if (!file.exists(output_path) ||
-    overwrite == TRUE) {
-    con <- dbConnect(
-      odbc(),
-      Driver = keyring::key_get("driver"),
-      Server = keyring::key_get("server"),
-      Database = keyring::key_get("database"),
-      UID = keyring::key_get("uid"),
-      PWD = keyring::key_get("pwd"),
-      Port = keyring::key_get("port")
-    )
-    raw <- dbGetQuery(con, query)
-    dbDisconnect(con)
+      overwrite == TRUE) {
+    if (!exists("con")) {
+      con <- dbConnect(
+        odbc(),
+        Driver = keyring::key_get("driver"),
+        Server = keyring::key_get("server"),
+        Database = keyring::key_get("database"),
+        UID = keyring::key_get("uid"),
+        PWD = keyring::key_get("pwd"),
+        Port = keyring::key_get("port")
+      )
+      raw <- dbGetQuery(con, query)
+      dbDisconnect(con)
+    } else {
+      raw <- dbGetQuery(con, query)
+    }
+
     arrow::write_parquet(raw, output_path)
   } else {
     raw <- arrow::read_parquet(output_path)
