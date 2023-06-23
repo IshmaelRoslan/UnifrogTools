@@ -5,7 +5,7 @@
 \alias{unifrog_oranges}
 \title{Unifrog oranges palette}
 \format{
-An object of class \code{character} of length 5.
+An object of class \code{character} of length 6.
 }
 \usage{
 unifrog_oranges

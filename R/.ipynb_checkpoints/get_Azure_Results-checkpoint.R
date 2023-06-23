@@ -22,16 +22,6 @@ updateAzureCreds <- function() {
   keyring::key_set("pwd", prompt = "Password:")
 }
 
-#' Fix code for Apple Silicon Macs
-#' @description Fix code for Apple Silicon Macs
-#' @export
-
-macfixAzure <- function() {
-  devtools::install_github("r-dbi/odbc")
-  Sys.setenv(ODBCSYSINI="/")
-  keyring::key_set_with_value("driver", password="ODBC Driver 17 for SQL Server")
-}
-
 #' Connect to the Azure Database and Run a Query
 #'
 #' @param SQLscript an object containing a SQL script

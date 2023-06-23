@@ -234,7 +234,7 @@ unifrog_colors <- function(...) {
     return(unifrog_colors_list)
   }
 
-  unifrog_colors_list[cols]
+  unifrog_colors_list[cols] |> unname()
 }
 #' Unifrog Main palette
 #' @import unikn
@@ -255,8 +255,8 @@ unifrog_main <-
 #' seecol(unifrog_purples, main = "unifrog_purples")
 unifrog_purples <-
   unikn::newpal(
-    col = unifrog_colors("purple0", "purple1", "purple2" , "purple" , "darkpurple" ),
-    names = c("purple0", "purple1", "purple2" , "purple" , "darkpurple" ),
+    col = unifrog_colors("background","purple0", "purple1", "purple2" , "purple" , "darkpurple"),
+    names = c("background","purple0", "purple1", "purple2" , "purple" , "darkpurple" ),
     as_df = F
   )
 #' Unifrog blues palette
@@ -267,8 +267,8 @@ unifrog_purples <-
 #' seecol(unifrog_blues, main = "unifrog_blues")
 unifrog_blues <-
   unikn::newpal(
-    col = unifrog_colors("blue0", "blue1", "blue2" , "blue" , "darkblue" ),
-    names = c("blue0", "blue1", "blue2" , "blue" , "darkblue" ),
+    col = unifrog_colors("background","blue0", "blue1", "blue2" , "blue" , "darkblue" ),
+    names = c("background","blue0", "blue1", "blue2" , "blue" , "darkblue" ),
     as_df = F
   )
 #' Unifrog oranges palette
@@ -279,8 +279,8 @@ unifrog_blues <-
 #' seecol(unifrog_oranges, main = "unifrog_oranges")
 unifrog_oranges <-
   unikn::newpal(
-    col = unifrog_colors("orange0", "orange1", "orange2" , "orange" , "darkorange" ),
-    names = c("orange0", "orange1", "orange2" , "orange" , "darkorange" ),
+    col = unifrog_colors("background","orange0", "orange1", "orange2" , "orange" , "darkorange" ),
+    names = c("background","orange0", "orange1", "orange2" , "orange" , "darkorange" ),
     as_df = F
   )
 #' Unifrog teals palette
@@ -291,8 +291,8 @@ unifrog_oranges <-
 #' seecol(unifrog_teals, main = "unifrog_teals")
 unifrog_teals <-
   unikn::newpal(
-    col = unifrog_colors("teal0", "teal1", "teal2" , "teal" , "darkteal" ),
-    names = c("teal0", "teal1", "teal2" , "teal" , "darkteal" ),
+    col = unifrog_colors("background","teal0", "teal1", "teal2" , "teal" , "darkteal" ),
+    names = c("background","teal0", "teal1", "teal2" , "teal" , "darkteal" ),
     as_df = F
   )
 #' Unifrog likert3 palette
@@ -314,8 +314,8 @@ likert3 <-
 #' unikn::seecol(likert5, main = "likert5")
 likert5 <-
   unikn::newpal(
-    col = unifrog_colors("orange", "yellow", "lightgrey", "blue", "darkblue"),
-    names = c("orange", "yellow", "lightgrey", "blue", "darkblue"),
+    col = unifrog_colors("darkorange","orange", "lightgrey", "blue", "darkblue"),
+    names = c("darkorange","orange", "lightgrey", "blue", "darkblue"),
     as_df = F
   )
 #' Unifrog likert7 palette
