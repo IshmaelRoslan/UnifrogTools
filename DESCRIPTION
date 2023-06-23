@@ -13,6 +13,7 @@ Imports:
     arrow,
     datawizard,
     DBI,
+    devtools,
     ggplot2,
     ggtext,
     glue,

@@ -234,7 +234,7 @@ unifrog_colors <- function(...) {
     return(unifrog_colors_list)
   }
 
-  unifrog_colors_list[cols]
+  unifrog_colors_list[cols] |> unname()
 }
 #' Unifrog Main palette
 #' @import unikn
