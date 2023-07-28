@@ -1,7 +1,7 @@
 Type: Package
 Package: unifrog
 Title: Unifrog Data Team Helpers
-Version: 0.3.1
+Version: 0.3.2
 Author: Ishmael Roslan
 Maintainer: Ishmael Roslan <ishmael@unifrog.org>
 Description: Contains helper functions for Unifrog employees for ggplot

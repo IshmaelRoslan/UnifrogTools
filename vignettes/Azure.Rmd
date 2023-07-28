@@ -38,7 +38,7 @@ In the example below, data/query_name.parquet already exists and so no query wil
 ```{r example1}
 query <- "queries/query_name.sql"
 results <- getAzureResults(
-  SQLscript = query,
+  SQLscript = query
 )
 results
 ```
