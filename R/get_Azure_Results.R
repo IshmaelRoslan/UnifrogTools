@@ -53,24 +53,16 @@ getAzureResults <- function(SQLscript,
                             output = NULL,
                             overwrite = FALSE,
                             glued = FALSE) {
-
-  if (glued == TRUE) {
-    query <- SQLscript
+  if (!is.null(output) && file.exists(output) &&
+      overwrite == FALSE) {
+    raw <- arrow::read_parquet(output)
   } else {
-    query <- glue::glue_sql(readr::read_file(SQLscript))
-  }
+    if (glued == TRUE) {
+      query <- SQLscript
+    } else {
+      query <- glue::glue_sql(readr::read_file(SQLscript))
+    }
 
-  if (is.null(output)) {
-    output_path <-
-      SQLscript |>
-      stringr::str_replace("queries/", "data/") |>
-      stringr::str_replace(".sql", ".parquet")
-  } else {
-    output_path <- output
-  }
-
-  if (!file.exists(output_path) ||
-      overwrite == TRUE) {
     if (!exists("con")) {
       con <- dbConnect(
         odbc(),
@@ -87,9 +79,9 @@ getAzureResults <- function(SQLscript,
       raw <- dbGetQuery(con, query)
     }
 
-    arrow::write_parquet(raw, output_path)
-  } else {
-    raw <- arrow::read_parquet(output_path)
+    if (!is.null(output)) {
+      arrow::write_parquet(raw, output)
+    }
+    return(raw)
   }
-  return(raw)
 }

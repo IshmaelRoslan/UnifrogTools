@@ -24,7 +24,7 @@ unifrog_theme <- function(base_size = 10) {
         face = "bold",
         color = unifrog_colors("main"),
         family = "Open Sans",
-        size = base_size * 1.2,
+        size = base_size * 1.6,
         hjust = 0
       ),
       rect = element_rect(fill = unifrog_colors("background")),
