@@ -1,5 +1,10 @@
 ---
 title: "Azure"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Palettes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
