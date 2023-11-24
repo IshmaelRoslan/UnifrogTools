@@ -3,7 +3,11 @@
         {
             "columnIndex": 2,
             "ascending": true
+        },
+        {
+            "columnIndex": 3,
+            "ascending": true
         }
     ],
-    "path": "~/Dropbox (Unifrog)/Team AC/10 Data Team/Analytics/Ishmaels Folder/Projects/unifrog"
+    "path": "~/Dropbox (Unifrog)/Team AC/10 Data Team/Analytics/Ishmaels Folder/Projects/unifrog/vignettes/articles"
 }
