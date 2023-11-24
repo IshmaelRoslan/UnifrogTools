@@ -85,3 +85,26 @@ getAzureResults <- function(SQLscript,
     return(raw)
   }
 }
+
+
+#' Connect to the Azure
+#'
+#' @description Make a connection to the Azure Database using stored credentials
+#' @export
+#' @import DBI
+#' @import odbc
+#' @import keyring
+#
+
+connectAzure <- function() {
+con <- DBI::dbConnect(
+  odbc::odbc(),
+  Driver = keyring::key_get("driver"),
+  Server = keyring::key_get("server"),
+  Database = keyring::key_get("database"),
+  UID = keyring::key_get("uid"),
+  PWD = keyring::key_get("pwd"),
+  Port = keyring::key_get("port")
+)
+return(con)
+}
