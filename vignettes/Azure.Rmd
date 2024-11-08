@@ -2,7 +2,7 @@
 title: "Azure"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Palettes}
+  %\VignetteIndexEntry{Azure}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,7 +18,6 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(unifrog)
-
 ```
 
 1. Ensure you are connected to any required VPNs
@@ -56,21 +55,18 @@ results
 Sometimes, you might want to change the query before passing to the function. In this case the raw `.sql`query must first be formatted using helper functions from `glue` and `readr`. In the example below we first read in the sql script.
 
 ```{r read}
-library(readr)
-query_text <- read_file("queries/query_name.sql")
+query_text <- readr::read_file("queries/query_name.sql")
 query_text
 ```
 Next we modify the script.
 ```{r str_replace}
-library(stringr)
-modified <- query_text |> 
-  str_replace("student_year_of_graduation", "student_school")
+modified <- query_text |>
+  stringr::str_replace("student_year_of_graduation", "student_school")
 modified
 ```
 The script must be 'glued' before passing to the function.
 ```{r glue}
-library(glue)
-query <- glue_sql(modified)
+query <- glue::glue_sql(modified)
 query
 ```
 
