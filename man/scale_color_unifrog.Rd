@@ -13,7 +13,7 @@
 \title{Unifrog colour palette}
 \usage{
 scale_color_unifrog(
-  palette = "unifrog_main",
+  palette = "qual_vibrant",
   discrete = TRUE,
   reverse = FALSE,
   aesthetics = "color",
@@ -21,7 +21,7 @@ scale_color_unifrog(
 )
 
 scale_color_unifrog_d(
-  palette = "unifrog_main",
+  palette = "qual_vibrant",
   discrete = TRUE,
   reverse = FALSE,
   aesthetics = "color",
@@ -29,7 +29,7 @@ scale_color_unifrog_d(
 )
 
 scale_color_unifrog_c(
-  palette = "likert3",
+  palette = "seq_iridescent",
   discrete = FALSE,
   reverse = FALSE,
   aesthetics = "color",
@@ -37,7 +37,7 @@ scale_color_unifrog_c(
 )
 
 scale_colour_unifrog(
-  palette = "unifrog_main",
+  palette = "qual_vibrant",
   discrete = TRUE,
   reverse = FALSE,
   aesthetics = "color",
@@ -45,7 +45,7 @@ scale_colour_unifrog(
 )
 
 scale_colour_unifrog_c(
-  palette = "likert3",
+  palette = "seq_iridescent",
   discrete = FALSE,
   reverse = FALSE,
   aesthetics = "color",
@@ -53,7 +53,7 @@ scale_colour_unifrog_c(
 )
 
 scale_colour_unifrog_d(
-  palette = "unifrog_main",
+  palette = "qual_vibrant",
   discrete = TRUE,
   reverse = FALSE,
   aesthetics = "color",
@@ -61,7 +61,7 @@ scale_colour_unifrog_d(
 )
 
 scale_fill_unifrog(
-  palette = "unifrog_main",
+  palette = "qual_vibrant",
   discrete = TRUE,
   reverse = FALSE,
   aesthetics = "fill",
@@ -69,7 +69,7 @@ scale_fill_unifrog(
 )
 
 scale_fill_unifrog_d(
-  palette = "unifrog_main",
+  palette = "qual_vibrant",
   discrete = TRUE,
   reverse = FALSE,
   aesthetics = "fill",
@@ -77,7 +77,7 @@ scale_fill_unifrog_d(
 )
 
 scale_fill_unifrog_c(
-  palette = "likert3",
+  palette = "seq_iridescent",
   discrete = FALSE,
   reverse = FALSE,
   aesthetics = "fill",
