@@ -28,8 +28,8 @@ updateAzureCreds <- function() {
 
 macfixAzure <- function() {
   devtools::install_github("r-dbi/odbc")
-  Sys.setenv(ODBCSYSINI="/")
-  keyring::key_set_with_value("driver", password="ODBC Driver 17 for SQL Server")
+  Sys.setenv(ODBCSYSINI = "/")
+  keyring::key_set_with_value("driver", password = "ODBC Driver 17 for SQL Server")
 }
 
 #' Connect to the Azure Database and Run a Query
@@ -53,37 +53,46 @@ getAzureResults <- function(SQLscript,
                             output = NULL,
                             overwrite = FALSE,
                             glued = FALSE) {
-  if (!is.null(output) && file.exists(output) &&
-      overwrite == FALSE) {
-    raw <- arrow::read_parquet(output)
-  } else {
-    if (glued == TRUE) {
-      query <- SQLscript
-    } else {
-      query <- glue::glue_sql(readr::read_file(SQLscript))
-    }
-
-    if (!exists("con")) {
-      con <- dbConnect(
-        odbc(),
-        Driver = keyring::key_get("driver"),
-        Server = keyring::key_get("server"),
-        Database = keyring::key_get("database"),
-        UID = keyring::key_get("uid"),
-        PWD = keyring::key_get("pwd"),
-        Port = keyring::key_get("port")
-      )
-      raw <- dbGetQuery(con, query)
-      dbDisconnect(con)
-    } else {
-      raw <- dbGetQuery(con, query)
-    }
-
-    if (!is.null(output)) {
-      arrow::write_parquet(raw, output)
-    }
-    return(raw)
+  # Read from parquet
+  if (!is.null(output) && file.exists(output) && overwrite == FALSE) {
+    return(arrow::read_parquet(output))
   }
+
+  conExists <- exists("con")
+
+  # Create connection if it didn't already exist
+  if (!conExists) {
+    con <- DBI::dbConnect(
+      odbc::odbc(),
+      Driver = keyring::key_get("driver"),
+      Server = keyring::key_get("server"),
+      Database = keyring::key_get("database"),
+      UID = keyring::key_get("uid"),
+      PWD = keyring::key_get("pwd"),
+      Port = keyring::key_get("port")
+    )
+  }
+
+  # Glue using connection, if not already glued
+  if (glued == TRUE) {
+    query <- SQLscript
+  } else {
+    query <- glue::glue_sql(readr::read_file(SQLscript), .con = con)
+  }
+
+
+  raw <- DBI::dbGetQuery(con, query)
+
+  # Store Results
+  if (!is.null(output)) {
+    arrow::write_parquet(raw, output)
+  }
+
+  # Disconnect from db if it was not already active
+  if (!conExists) {
+    DBI::dbDisconnect(con)
+  }
+  return(raw)
 }
 
 
@@ -97,14 +106,14 @@ getAzureResults <- function(SQLscript,
 #
 
 connectAzure <- function() {
-con <- DBI::dbConnect(
-  odbc::odbc(),
-  Driver = keyring::key_get("driver"),
-  Server = keyring::key_get("server"),
-  Database = keyring::key_get("database"),
-  UID = keyring::key_get("uid"),
-  PWD = keyring::key_get("pwd"),
-  Port = keyring::key_get("port")
-)
-return(con)
+  con <- DBI::dbConnect(
+    odbc::odbc(),
+    Driver = keyring::key_get("driver"),
+    Server = keyring::key_get("server"),
+    Database = keyring::key_get("database"),
+    UID = keyring::key_get("uid"),
+    PWD = keyring::key_get("pwd"),
+    Port = keyring::key_get("port")
+  )
+  return(con)
 }

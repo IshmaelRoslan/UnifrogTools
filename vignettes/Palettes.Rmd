@@ -3,8 +3,10 @@ title: "Palettes"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Palettes}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -42,31 +44,31 @@ seecol(unifrog_colors(), main = "The entire Unifrog colour scheme")
 ```
 
 ```{r}
-seecol(unifrog_main, main = "The \"main\" palette is default for discrete data")
+seecol(qual_vibrant, main = "The \"qual_vibrant\" palette is default for discrete data")
 ```
 
 ```{r}
-seecol(likert3, main = "The \"likert3\" palette is default for continuous data")
+seecol(seq_iridescent, main = "The \"seq_iridescent\" palette is default for continuous data")
 ```
 
 ```{r}
-seecol(unifrog_palettes,
+seecol(cb_palettes,
   main = "The names of all of the Unifrog palettes",
-  pal_names = names(unifrog_palettes)
+  pal_names = names(cb_palettes)
 )
 ```
 
-They have been grouped in three categories:
+They have been grouped in three colour-blind friendly categories:
 
-Discrete - 'unifrog_main'
+Discrete - 'qual_bright', 'qual_vibrant', 'qual_hc', 'qual_muted', 'qual_mc', 'qual_pale', 'qual_light'
 
-Sequential - 'unifrog_blues', 'unifrog_greens', 'unifrog_oranges', 'unifrog_reds'
+Sequential - 'seq_YlBr', 'seq_iridescent', 'seq_incandescent'
 
-Diverging - 'likert3', 'likert5', 'likert7'
+Diverging - 'div_sunset', 'div_nightfall', 'div_PrGn', 'div_BuRd'
 
 ### scale_fill_unifrog
 
-If no fill is specified, for a categorical variable, then the default is `scale_fill_unifrog_d("unifrog_main")`.
+If no fill is specified, for a categorical variable, then the default is `scale_fill_unifrog_d("qual_vibrant")`.
 
 ```{r}
 ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
@@ -94,7 +96,7 @@ ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   scale_fill_unifrog_d(reverse = TRUE)
 ```
 
-In order to guarantee the colour reversal for `unifrog_main` use `fct_rev` in the fill argument.
+In order to guarantee the colour reversal for `qual_vibrant` use `fct_rev` in the fill argument.
 
 ```{r}
 #| code-line-numbers: true
@@ -113,18 +115,18 @@ Note a sequential palette does not often make sense for bar charts.
 ```{r}
 ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   geom_violin() +
-  scale_fill_unifrog_d(palette = "unifrog_teals") +
+  scale_fill_unifrog_d(palette = "div_PrGn") +
   theme_classic()
 ```
 
 ### scale_color_unifrog
 
-For continuous variables, the default is `scale_fill_unifrog_c("likert3")`
+For continuous variables, the default is `scale_fill_unifrog_c("seq_iridescent")`
 
 ```{r}
 ggplot(mpg, aes(x = displ, y = hwy, color = hwy)) +
   geom_point() +
-  unifrog_theme()
+  unifrog_theme(axis = TRUE)
 ```
 
 You can change this the same way as shown above but using the color aesthetic.
@@ -132,6 +134,6 @@ You can change this the same way as shown above but using the color aesthetic.
 ```{r}
 ggplot(mpg, aes(x = displ, y = hwy, color = hwy)) +
   geom_point() +
-  scale_color_unifrog_c("likert5") +
+  scale_color_unifrog_c("likert3") +
   unifrog_theme()
 ```

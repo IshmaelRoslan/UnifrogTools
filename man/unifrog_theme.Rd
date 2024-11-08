@@ -2,13 +2,39 @@
 % Please edit documentation in R/unifrog_theme.R
 \name{unifrog_theme}
 \alias{unifrog_theme}
-\title{A ggplot theme for Unifrog employees based on theme_classic()}
+\title{A ggplot theme for Unifrog employees based on theme_grey()}
 \usage{
-unifrog_theme(base_size = 10)
+unifrog_theme(
+  base_size = 14,
+  base_family = "Roboto",
+  header_family = "Open Sans",
+  base_line_size = base_size/28,
+  base_rect_size = base_size/28,
+  grid_col = unifrog_colors("lightgrey"),
+  grid = TRUE,
+  axis_col = unifrog_colors("darkgrey"),
+  axis = FALSE
+)
 }
 \arguments{
 \item{base_size}{The default font_size in pts}
+
+\item{base_family}{The default font family for text}
+
+\item{header_family}{The font family for title, axis titles, subtitle and caption.}
+
+\item{base_line_size}{Default line width}
+
+\item{base_rect_size}{Default rectangle line width}
+
+\item{grid_col}{Colour of major gridlines}
+
+\item{grid}{Should gridlines be shown? (Default = TRUE) False means hide both. X shows major X. Xx shows major and minor x. XY shows both.}
+
+\item{axis_col}{= Colour of axes}
+
+\item{axis}{show axes? TRUE/FALSE/'x'/'y'}
 }
 \description{
-A ggplot theme for Unifrog employees based on theme_classic()
+A ggplot theme for Unifrog employees based on theme_grey()
 }
